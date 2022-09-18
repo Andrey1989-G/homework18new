@@ -4,7 +4,7 @@ from dao.director import DirectorDAO
 
 
 class DirectorService:
-    def __int__(self, director_dao):
+    def __init__(self, director_dao):
         self.director_dao = director_dao
 
     def get_directors(self) -> List[DirectorDAO]:

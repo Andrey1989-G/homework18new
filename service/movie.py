@@ -4,7 +4,7 @@ from dao.movie import MovieDAO
 
 
 class MovieService:
-    def __int__(self, movie_dao):
+    def __init__(self, movie_dao):
         self.movie_dao = movie_dao
 
     def get_movies(self) -> List[MovieDAO]:

@@ -4,7 +4,7 @@ from dao.genre import GenreDAO
 
 
 class GenreService:
-    def __int__(self, genre_dao):
+    def __init__(self, genre_dao):
         self.genre_dao = genre_dao
 
     def get_genres(self) -> List[GenreDAO]:
