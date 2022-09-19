@@ -15,7 +15,7 @@ class Genre(db.Model):
 
 
 class Movie(db.Model):
-    __table_name__ = 'movie'
+    __table_name__ = 'movie.py'
     id = db.Column(Integer, primary_key=True)
     description = db.Column(String)
     rating = db.Column(Float)
