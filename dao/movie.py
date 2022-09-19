@@ -6,7 +6,7 @@ class MovieDAO:
         self.session = session
 
     def get_all_movies(self):
-        return self.session.query(Movie).all
+        return self.session.query(Movie).all()
 
     def get_movies_by_id(self, yid):
         return self.session.query(Movie).filter(Movie.id == yid).one()
@@ -26,7 +26,7 @@ class MovieDAO:
 
     def create_movie(self, **kwargs):
         try:
-            self.session.query.add(Movie(**kwargs))
+            self.session.add(Movie(**kwargs))
             self.session.commit()
             return True
         except Exception as e:

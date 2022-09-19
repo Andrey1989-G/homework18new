@@ -14,7 +14,7 @@ class MovieService:
         return self.movie_dao.get_movies_by_id(uid)
 
     def get_movie_by_kwargs(self, **kwargs):
-        return self.movie_dao.get_movies_by_kwargs(**kwargs)
+        return self.movie_dao.get_by_kwargs(**kwargs)
 
     def create_movie(self, **kwargs):
         return self.movie_dao.create_movie(**kwargs)

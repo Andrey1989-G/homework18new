@@ -4,7 +4,7 @@ from flask_restx import Resource, Namespace
 from dao.model.schema import GenreSchema
 from implement import genre_service
 
-genre_ns = Namespace('directors')
+genre_ns = Namespace('genres')
 genre_schema = GenreSchema(many=True)
 
 @genre_ns.route('/')

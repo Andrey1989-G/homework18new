@@ -14,10 +14,11 @@ class MovieViews(Resource):
         args = request.args
         if len(args):
             return movie_schema.dump(movie_service.get_movie_by_kwargs(**args)), 200
-        return movie_schema.dump(movie_service.get_service()), 200
+
+        return movie_schema.dump(movie_service.get_movies()), 200
     #
     def post(self):
-        if movie_service.create_movie(request.json):
+        if movie_service.create_movie(**request.json):
             return 'создано', 200
         else:
             return 'ошибка', 200
@@ -28,13 +29,13 @@ class MovieViews(Resource):
     def get(self, uid):
         return movie_schema.dump([movie_service.get_movie_by_id(uid=uid)]), 200
 
-    def put(self):
+    def put(self, uid):
         if movie_service.update_movie(request.json):
             return 'обновился', 200
         else:
             return 'необновился', 200
 
-    def delete(self):
+    def delete(self, uid):
         if movie_service.delete_movie(request.json):
             return 'удален', 200
         else:
