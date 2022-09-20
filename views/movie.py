@@ -30,13 +30,13 @@ class MovieViews(Resource):
         return movie_schema.dump([movie_service.get_movie_by_id(uid=uid)]), 200
 
     def put(self, uid):
-        if movie_service.update_movie(request.json):
+        if movie_service.update_movie(uid, **request.json):
             return 'обновился', 200
         else:
             return 'необновился', 200
 
     def delete(self, uid):
-        if movie_service.delete_movie(request.json):
+        if movie_service.delete_movie(uid):
             return 'удален', 200
         else:
             return 'неудален', 200

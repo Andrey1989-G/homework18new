@@ -14,11 +14,12 @@ class MovieDAO:
     def get_by_kwargs(self, **kwargs):
         return self.session.query(Movie).filter_by(**kwargs).all()
 
-    def update_movie(self, **kwargs):
+    def update_movie(self, uid, **kwargs):
         try:
-            self.session.query(Movie).filter(Movie.id == kwargs.get('id')).update(kwargs)
-            self.session.commit()
-            return True
+            if uid == Movie.id:
+                self.session.query(Movie).filter(Movie.id == kwargs.get('id')).update(kwargs)
+                self.session.commit()
+                return True
         except Exception as e:
             print(e)
             self.session.rollback()
