@@ -16,10 +16,9 @@ class MovieDAO:
 
     def update_movie(self, uid, **kwargs):
         try:
-            if uid == Movie.id:
-                self.session.query(Movie).filter(Movie.id == kwargs.get('id')).update(kwargs)
-                self.session.commit()
-                return True
+            self.session.query(Movie).filter(Movie.id == uid).update(kwargs)
+            self.session.commit()
+            return True
         except Exception as e:
             print(e)
             self.session.rollback()
